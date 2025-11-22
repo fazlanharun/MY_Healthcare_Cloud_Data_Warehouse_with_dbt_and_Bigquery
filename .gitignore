@@ -1,0 +1,17 @@
+env_dbt_bQ
+__pycache__/
+dw-healthcare-dbt.json
+logs/
+*.log
+.env
+target/
+__init__.py
+.csv
+*.csv
+
+target/
+dbt_packages/
+logs/
+dbt_internal_packages/
+all.ipynb
+*.duckdb
