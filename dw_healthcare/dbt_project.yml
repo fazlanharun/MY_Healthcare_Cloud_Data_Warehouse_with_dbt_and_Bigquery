@@ -26,7 +26,15 @@ models:
   dw_healthcare:   
     staging:
       +schema: staging
+      +materialized: view
     intermediate:
       +schema: intermediate
-    marts:
-      +schema: marts
+      +materialized: table
+    mart:
+      +schema: mart
+      +materialized: table
+
+snapshots:
+  dw_healthcare:
+    +schema: snapshots
+    +materialized: snapshot

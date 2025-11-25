@@ -9,10 +9,7 @@ WITH source as (
 scd AS (
     SELECT
     SAFE_CAST(farm_fingerprint(state) AS INT64) AS state_id,
-    state as state_name,
-    CURRENT_DATE() AS valid_from,
-    NULL AS valid_to,
-    TRUE AS is_current
+    state as state_name
 FROM source
 )
 

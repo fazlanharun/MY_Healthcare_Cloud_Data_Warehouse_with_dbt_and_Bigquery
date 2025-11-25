@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: mart_healthcare_capacity
+    description: "Mart layer for healthcare capacity."
+    columns:
+      - name: year
+        description: "Year of record"
+        tests:
+          - not_null
+
+      - name: total_population
+        description: "Total population"
+        tests:
+          - not_null
+
+      - name: bed
+        description: "Number of hospital beds"
+
+      - name: dr
+        description: "Number of doctors"
+        tests:
+          - not_null
+
+      - name: nurse
+        description: "Number of nurses"
+        tests:
+          - not_null
+
+      - name: doctor_per_10k_population
+        description: "Doctors per 10k population"
+        tests:
+          - not_null
+
+      - name: nurse_per_10k_population
+        description: "Nurses per 10k population"
+        tests:
+          - not_null
+
+      - name: beds_per_10k
+        description: "Beds per 10k population"
+
+      - name: who_indicator_dr_gt_20_7
+        description: "WHO indicator: doctors > 20.7 per 10k"
+
+      - name: who_indicator_nurse_gt_70_6
+        description: "WHO indicator: nurses > 70.6 per 10k"

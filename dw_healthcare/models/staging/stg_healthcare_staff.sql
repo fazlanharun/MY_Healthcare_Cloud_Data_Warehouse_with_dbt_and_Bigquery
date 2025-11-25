@@ -1,5 +1,4 @@
 {{ config(
-    materialized='table',
     cluster_by=['state']
 ) }}
 

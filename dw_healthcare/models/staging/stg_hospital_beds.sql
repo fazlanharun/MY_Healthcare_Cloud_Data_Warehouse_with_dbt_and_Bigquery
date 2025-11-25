@@ -1,5 +1,4 @@
 {{ config(
-    materialized='table',
     cluster_by=['state']
 ) }}
 
@@ -10,7 +9,7 @@ with source as (
 
 filtered as (
     select
-    beds,
+    beds/2 AS beds, --to match total state with Malaysia
     date,
     type,
     state

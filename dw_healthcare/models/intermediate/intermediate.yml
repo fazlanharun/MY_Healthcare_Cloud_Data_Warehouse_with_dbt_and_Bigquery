@@ -1,0 +1,100 @@
+version: 2
+
+models:
+  - name: dim_age
+    description: "Dimension table for age groups"
+    columns:
+      - name: age
+        description: "Age group"
+        tests:
+          - not_null
+
+  - name: dim_ethnicity
+    description: "Dimension table for ethnicity"
+    columns:
+      - name: ethnicity
+        description: "Ethnicity group"
+        tests:
+          - not_null
+
+  - name: dim_gender
+    description: "Dimension table for gender"
+    columns:
+      - name: sex
+        description: "Gender (M/F)"
+        tests:
+          - not_null
+
+  - name: dim_state
+    description: "Dimension table for states with SCD tracking"
+    columns:
+      - name: state_id
+        description: "Unique identifier for state"
+        tests:
+          - not_null
+          - unique
+      - name: state_name
+        description: "State name"
+        tests:
+          - not_null
+
+  - name: fact_healthcare_staff
+    description: "Fact table for healthcare staff counts"
+    columns:
+      - name: state_id
+        description: "Foreign key to dim_state"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_state')
+              field: state_id
+      - name: year
+        description: "Year of record"
+        tests:
+          - not_null
+      - name: doctor_count
+        description: "Number of doctors"
+      - name: nurse_count
+        description: "Number of nurses"
+
+  - name: fact_hospital_beds
+    description: "Fact table for hospital beds"
+    columns:
+      - name: state_id
+        description: "Foreign key to dim_state"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_state')
+              field: state_id
+      - name: year
+        description: "Year of record"
+        tests:
+          - not_null
+      - name: total_beds
+        description: "Total number of hospital beds"
+
+  - name: fact_population
+    description: "Fact table for population by state, sex, age, ethnicity"
+    columns:
+      - name: state_id
+        description: "Foreign key to dim_state"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_state')
+              field: state_id
+      - name: year
+        description: "Year of record"
+        tests:
+          - not_null
+      - name: sex
+        description: "Gender"
+      - name: age
+        description: "Age group"
+      - name: ethnicity
+        description: "Ethnicity group"
+      - name: population
+        description: "Population count"
+        tests:
+          - not_null

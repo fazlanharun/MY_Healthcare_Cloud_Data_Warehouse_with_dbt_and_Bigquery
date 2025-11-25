@@ -1,4 +1,3 @@
-
 version: 2
 
 sources:
@@ -10,21 +9,55 @@ sources:
       - name: hospital_beds
       - name: population_state
 
-# models:
-#   - name: my_first_dbt_model
-#     description: "A starter dbt model"
-#     columns:
-#       - name: id
-#         description: "The primary key for this table"
-#         data_tests:
-#           - unique
-#           - not_null
+models:
+  - name: stg_healthcare_staff
+    description: "Staging model for healthcare staff"
+    columns:
+      - name: date
+        description: "Date of record"
+        tests:
+          - not_null
+      - name: type
+        description: "Type of staff"
+      - name: staff
+        description: "Number of staff"
+        tests:
+          - not_null
+      - name: state
+        description: "State name"
 
-#   - name: my_second_dbt_model
-#     description: "A starter dbt model"
-#     columns:
-#       - name: id
-#         description: "The primary key for this table"
-#         data_tests:
-#           - unique
-#           - not_null
+  - name: stg_hospital_beds
+    description: "Staging model for hospital beds"
+    columns:
+      - name: beds
+        description: "Number of hospital beds"
+        tests:
+          - not_null
+      - name: date
+        description: "Date of record"
+      - name: type
+        description: "Type of bed"
+      - name: state
+        description: "State name"
+
+  - name: stg_population_state
+    description: "Staging model for population by state"
+    columns:
+      - name: year
+        description: "Year of record"
+        tests:
+          - not_null
+      - name: state
+        description: "State name"
+        tests:
+          - not_null
+      - name: sex
+        description: "Gender"
+      - name: age
+        description: "Age group"
+      - name: ethnicity
+        description: "Ethnicity group"
+      - name: population
+        description: "Population count"
+        tests:
+          - not_null
