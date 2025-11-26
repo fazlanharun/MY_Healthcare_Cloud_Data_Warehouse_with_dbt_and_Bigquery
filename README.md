@@ -1,7 +1,7 @@
 # MY Healthcare Cloud Data Warehouse
 
 End-to-end cloud data warehouse using  dbt, BigQuery, Docker and Airflow. This project involves a comprehensive data engineering workflow for analyzing healthcare capacity with respect to population data from data.gov.my. 
-The final data spans from 2014 to 2022, as it is the latest available data on hospital bed and healthcare stafff in public sector.
+The final data spans from 2014 to 2022, as it is the latest available data on hospital bed and healthcare staff in public sector.
 
 Overview
 <img width="1141" height="663" alt="dbt_bigquery drawio (5)" src="https://github.com/user-attachments/assets/c603862f-a0ef-4b46-9f1b-d0f021296ac5" />
